@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <title>ShindaBet - Jackpots</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(120deg, #fffde7 0%, #fff 100%);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 32px 24px;
+            border-radius: 14px;
+            box-shadow: 0 4px 24px rgba(255,193,7,0.10);
+        }
+        h2 {
+            color: #e65100;
+            text-align: center;
+            margin-bottom: 18px;
+            letter-spacing: 1px;
+            font-size: 2.1rem;
+        }
+        .info {
+            background: #fff8e1;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 28px;
+            text-align: center;
+            font-size: 17px;
+            color: #ff9800;
+            box-shadow: 0 2px 8px rgba(255,193,7,0.06);
+        }
+        .jackpot-list {
+            margin-bottom: 30px;
+        }
+        .jackpot-item {
+            background: #fffde7;
+            border-left: 6px solid #ffb300;
+            border-radius: 7px;
+            padding: 18px 16px;
+            margin-bottom: 18px;
+            box-shadow: 0 1px 6px rgba(255,193,7,0.07);
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+        .jackpot-item:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 6px 18px rgba(255,193,7,0.13);
+        }
+        .jackpot-title {
+            font-size: 19px;
+            font-weight: bold;
+            color: #e65100;
+            margin-bottom: 6px;
+        }
+        .jackpot-prize {
+            color: #388e3c;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        .not-available {
+            background: #ffcdd2;
+            color: #b71c1c;
+            border-radius: 6px;
+            padding: 14px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 500;
+            margin-top: 18px;
+            box-shadow: 0 2px 8px rgba(183,28,28,0.07);
+        }
+        @media (max-width: 700px) {
+            .container {
+                margin: 18px 6px;
+                padding: 18px 6px;
+            }
+            h2 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Jackpots</h2>
+        <div class="info">
+            ShindaBet inatoa michezo ya jackpot kama <b>Babalao Jackpot</b> na <b>Sukari Jackpot</b>, ambapo unaweza kushinda hadi <b>TZS 100,000,000</b> kwa Babalao na <b>TZS 20,000,000</b> kwa Sukari.<br>
+            <span style="font-size:14px;color:#bdbdbd;">Muonekano wa kisasa kama WasafiBet &amp; Betway</span>
+        </div>
+        <div class="jackpot-list">
+            <div class="jackpot-item">
+                <div class="jackpot-title">Babalao Jackpot</div>
+                <div class="jackpot-prize">Zawadi Kuu: TZS 100,000,000</div>
+            </div>
+            <div class="jackpot-item">
+                <div class="jackpot-title">Sukari Jackpot</div>
+                <div class="jackpot-prize">Zawadi Kuu: TZS 20,000,000</div>
+            </div>
+        </div>
+        <div class="not-available">
+            Hata hivyo, michezo hii ya jackpot haipo kwa sasa. Tafadhali rudi baadaye kwa taarifa zaidi.
+        </div>
+    </div>
+</body>

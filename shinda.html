@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <title>ShindaBetLive - Live Betting</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(120deg, #e3f2fd 0%, #fff 100%);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(21,101,192,0.10);
+        }
+        h2 {
+            color: #1565c0;
+            text-align: center;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        .info {
+            background: #e3f2fd;
+            padding: 14px;
+            border-radius: 8px;
+            margin-bottom: 28px;
+            text-align: center;
+            font-size: 17px;
+            color: #1976d2;
+        }
+        .sports-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 24px;
+            justify-content: center;
+            margin-bottom: 32px;
+        }
+        .sport-card {
+            background: #f8fafc;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(21,101,192,0.07);
+            padding: 24px 10px 18px 10px;
+            text-align: center;
+            transition: transform 0.18s, box-shadow 0.18s;
+            border: 2px solid #e3f2fd;
+            position: relative;
+        }
+        .sport-card:hover {
+            transform: translateY(-7px) scale(1.04);
+            box-shadow: 0 8px 24px rgba(21,101,192,0.18);
+            border-color: #1976d2;
+            background: #e3f2fd;
+        }
+        .sport-icon {
+            font-size: 44px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .sport-title {
+            font-weight: 600;
+            color: #1565c0;
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+        .live-badge {
+            background: #e53935;
+            color: #fff;
+            border-radius: 4px;
+            padding: 2px 10px;
+            font-size: 13px;
+            margin-left: 6px;
+            font-weight: bold;
+        }
+        .streaming {
+            color: #43a047;
+            font-size: 13px;
+            margin-top: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+        }
+        .countries-title {
+            color: #1976d2;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 30px 0 10px 0;
+            text-align: center;
+        }
+        .countries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 16px;
+            justify-content: center;
+        }
+        .country-card {
+            background: #f1f8e9;
+            border-radius: 8px;
+            padding: 12px 6px;
+            text-align: center;
+            font-size: 15px;
+            color: #388e3c;
+            box-shadow: 0 1px 4px rgba(67,160,71,0.07);
+            border: 1.5px solid #c8e6c9;
+            transition: background 0.15s, border 0.15s;
+        }
+        .country-card:hover {
+            background: #c8e6c9;
+            border: 1.5px solid #388e3c;
+        }
+        .country-flag {
+            font-size: 22px;
+            margin-bottom: 4px;
+            display: block;
+        }
+        @media (max-width: 700px) {
+            .container { padding: 10px; }
+            .sports-grid, .countries-grid { gap: 10px; }
+            .sport-card { padding: 16px 4px 12px 4px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>ShindaBetLive - Live Betting</h2>
+        <div class="info">
+             Kubeti michezo inayochezwa kwa sasa (live betting)
+        </div>
+        <div class="sports-grid">
+            <div class="sport-card">
+                <span class="sport-icon">⚽</span>
+                <div class="sport-title">Soka</div>
+                <span class="live-badge">LIVE</span>
+                <div class="streaming">📺 Live Streaming</div>
+            </div>
+            <div class="sport-card">
+                <span class="sport-icon">🎾</span>
+                <div class="sport-title">Tenisi</div>
+                <span class="live-badge">LIVE</span>
+                <div class="streaming">📺 Live Streaming</div>
+            </div>
+            <div class="sport-card">
+                <span class="sport-icon">🏀</span>
+                <div class="sport-title">Mpira wa Kikapu</div>
+                <span class="live-badge">LIVE</span>
+                <div class="streaming">📺 Live Streaming</div>
+            </div>
+            <div class="sport-card">
+                <span class="sport-icon">    </span>
+                <div class="sport-title">Volleyball</div>
+                <span class="live-badge">LIVE</span>
+            </div>
+            <div class="sport-card">
+                <span class="sport-icon">🏉</span>
+                <div class="sport-title">Rugby</div>
+                <span class="live-badge">LIVE</span>
+            </div>
+            <div class="sport-card">
+                <span class="sport-icon">🏏</span>
+                <div class="sport-title">Kriketi</div>
+                <span class="live-badge">LIVE</span>
+            </div>
+            <div class="sport-card">
+                <span class="sport-icon">🏓</span>
+                <div class="sport-title">Table Tennis</div>
+                <span class="live-badge">LIVE</span>
+            </div>
+            <div class="sport-card">
+                <span class="sport-icon">🥊</span>
+                <div class="sport-title">Boxing</div>
+                <span class="live-badge">LIVE</span>
+            </div>
+            <div class="sport-card">
+                <span class="sport-icon">🏒</span>
+                <div class="sport-title">Ice Hockey</div>
+                <span class="live-badge">LIVE</span>
+            </div>
+            <div class="sport-card">
+                <span class="sport-icon">🏸</span>
+                <div class="sport-title">Badminton</div>
+                <span class="live-badge">LIVE</span>
+            </div>
+            <div class="sport-card">
+                <span class="sport-icon">🏹</span>
+                <div class="sport-title">Archery</div>
+                <span class="live-badge">LIVE</span>
+            </div>
+            <div class="sport-card">
+                <span class="sport-icon">🏃‍♂️</span>
+                <div class="sport-title">Mbio</div>
+                <span class="live-badge">LIVE</span>
+            </div>
+        </div>
+        <div class="countries-title">Live Betting</div>
+        <div class="countries-grid">
+            <div class="country-card"><span class="country-flag">🇹🇿</span>Tanzania</div>
+            <div class="country-card"><span class="country-flag">🇰🇪</span>Kenya</div>
+            <div class="country-card"><span class="country-flag">🇺🇬</span>Uganda</div>
+            <div class="country-card"><span class="country-flag">🇷🇼</span>Rwanda</div>
+            <div class="country-card"><span class="country-flag">🇧🇮</span>Burundi</div>
+            <div class="country-card"><span class="country-flag">🇿🇲</span>Zambia</div>
+            <div class="country-card"><span class="country-flag">🇲🇼</span>Malawi</div>
+            <div class="country-card"><span class="country-flag">🇿🇦</span>Afrika Kusini</div>
+            <div class="country-card"><span class="country-flag">🇳🇬</span>Nigeria</div>
+            <div class="country-card"><span class="country-flag">🇬🇭</span>Ghana</div>
+            <div class="country-card"><span class="country-flag">🇪🇬</span>Misri</div>
+            <div class="country-card"><span class="country-flag">🇲🇦</span>Morocco</div>
+            <div class="country-card"><span class="country-flag">🇩🇿</span>Algeria</div>
+            <div class="country-card"><span class="country-flag">🇹🇳</span>Tunisia</div>
+            <div class="country-card"><span class="country-flag">🇸🇩</span>Sudan</div>
+            <div class="country-card"><span class="country-flag">🇪🇹</span>Ethiopia</div>
+            <div class="country-card"><span class="country-flag">🇸🇳</span>Senegal</div>
+            <div class="country-card"><span class="country-flag">🇨🇮</span>Ivory Coast</div>
+            <div class="country-card"><span class="country-flag">🇨🇲</span>Cameroon</div>
+            <div class="country-card"><span class="country-flag">🇬🇶</span>Equatorial Guinea</div>
+            <div class="country-card"><span class="country-flag">🇬🇦</span>Gabon</div>
+            <div class="country-card"><span class="country-flag">🇨🇬</span>Congo</div>
+            <div class="country-card"><span class="country-flag">🇨🇩</span>DR Congo</div>
+            <div class="country-card"><span class="country-flag">🇦🇴</span>Angola</div>
+            <div class="country-card"><span class="country-flag">🇲🇿</span>Mozambique</div>
+            <div class="country-card"><span class="country-flag">🇲🇬</span>Madagascar</div>
+            <div class="country-card"><span class="country-flag">🇧🇼</span>Botswana</div>
+            <div class="country-card"><span class="country-flag">🇳🇦</span>Namibia</div>
+            <div class="country-card"><span class="country-flag">🇸🇿</span>Eswatini</div>
+            <div class="country-card"><span class="country-flag">🇱🇸</span>Lesotho</div>
+            <div class="country-card"><span class="country-flag">🇸🇴</span>Somalia</div>
+            <div class="country-card"><span class="country-flag">🇩🇯</span>Djibouti</div>
+            <div class="country-card"><span class="country-flag">🇪🇷</span>Eritrea</div>
+            <div class="country-card"><span class="country-flag">🇸🇱</span>Sierra Leone</div>
+            <div class="country-card"><span class="country-flag">🇬🇲</span>Gambia</div>
+            <div class="country-card"><span class="country-flag">🇱🇷</span>Liberia</div>
+            <div class="country-card"><span class="country-flag">🇬🇼</span>Guinea-Bissau</div>
+            <div class="country-card"><span class="country-flag">🇬🇳</span>Guinea</div>
+            <div class="country-card"><span class="country-flag">🇲🇱</span>Mali</div>
+            <div class="country-card"><span class="country-flag">🇧🇫</span>Burkina Faso</div>
+            <div class="country-card"><span class="country-flag">🇳🇪</span>Niger</div>
+            <div class="country-card"><span class="country-flag">🇹🇩</span>Chad</div>
+            <div class="country-card"><span class="country-flag">🇨🇫</span>Central African Republic</div>
+            <div class="country-card"><span class="country-flag">🇧🇯</span>Benin</div>
+            <div class="country-card"><span class="country-flag">🇹🇬</span>Togo</div>
+            <div class="country-card"><span class="country-flag">🇲🇷</span>Mauritania</div>
+            <div class="country-card"><span class="country-flag">🇸🇹</span>São Tomé and Príncipe</div>
+            <div class="country-card"><span class="country-flag">🇨🇻</span>Cape Verde</div>
+            <div class="country-card"><span class="country-flag">🇸🇨</span>Seychelles</div>
+            <div class="country-card"><span class="country-flag">🇲🇺</span>Mauritius</div>
+            <div class="country-card"><span class="country-flag">🇰🇲</span>Comoros</div>
+            <div class="country-card"><span class="country-flag">🇸🇸</span>South Sudan</div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shida Ligi</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Montserrat', Arial, sans-serif;
+            background: linear-gradient(120deg, #0f2027 0%, #2c5364 60%, #ffd700 100%);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow-x: hidden;
+        }
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 80% 20%, #ffd70044 0%, transparent 60%),
+                        radial-gradient(circle at 10% 80%, #ffd70033 0%, transparent 70%);
+            z-index: 0;
+        }
+        .main-frame {
+            background: rgba(255,255,255,0.18);
+            border-radius: 32px;
+            box-shadow: 0 16px 48px 0 rgba(31,38,135,0.35), 0 2px 8px #ffd70033, 0 0 40px #ffd70033;
+            padding: 56px 36px 36px 36px;
+            max-width: 1000px;
+            width: 100%;
+            margin: 48px 0;
+            border: 3px solid #ffd700;
+            position: relative;
+            z-index: 1;
+            backdrop-filter: blur(8px);
+            animation: fadeInMain 1.2s cubic-bezier(.4,0,.2,1);
+        }
+        @keyframes fadeInMain {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .header-section {
+            text-align: center;
+            margin-bottom: 38px;
+            animation: fadeInHeader 1.2s cubic-bezier(.4,0,.2,1);
+            position: relative;
+        }
+        @keyframes fadeInHeader {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .header-section .icon {
+            font-size: 4.2rem;
+            color: #ffd700;
+            margin-bottom: 12px;
+            text-shadow: 0 0 18px #ffd70099, 0 2px 8px #fff2;
+            animation: bounce 1.5s infinite alternate;
+            filter: drop-shadow(0 0 24px #ffd700cc);
+        }
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-10px); }
+        }
+        .header-section h1 {
+            font-size: 2.9rem;
+            color: #ffd700;
+            margin-bottom: 12px;
+            letter-spacing: 2.5px;
+            text-shadow: 0 2px 24px #ffd70088, 0 2px 12px #ffd70044;
+            font-weight: 700;
+        }
+        .header-section p {
+            font-size: 1.23rem;
+            color: #fffde4;
+            margin-bottom: 0;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            text-shadow: 0 1px 6px #0004;
+        }
+        .header-section .cta-btn {
+            margin-top: 18px;
+            background: linear-gradient(90deg, #ffd700 60%, #ffb300 100%);
+            color: #222;
+            font-weight: 700;
+            font-size: 1.15rem;
+            border: none;
+            border-radius: 24px;
+            padding: 12px 38px;
+            box-shadow: 0 4px 18px #ffd70055;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+            letter-spacing: 1px;
+            outline: none;
+        }
+        .header-section .cta-btn:hover {
+            background: linear-gradient(90deg, #ffb300 40%, #ffd700 100%);
+            transform: scale(1.05);
+            color: #111;
+        }
+        .leagues-frame {
+            background: rgba(255,255,255,0.22);
+            border-radius: 22px;
+            box-shadow: 0 6px 24px 0 rgba(31,38,135,0.18);
+            padding: 32px 20px;
+            margin-top: 22px;
+            position: relative;
+            z-index: 1;
+        }
+        .leagues-frame h2 {
+            color: #ffd700;
+            margin-bottom: 12px;
+            font-size: 1.7rem;
+            letter-spacing: 1px;
+            font-weight: 700;
+            text-shadow: 0 2px 8px #ffd70033;
+        }
+        .leagues-frame .info {
+            color: #fff;
+            margin-bottom: 22px;
+            font-size: 1.13rem;
+            opacity: 0.92;
+        }
+        .leagues-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 22px;
+        }
+        .league-card {
+            background: rgba(255,255,255,0.28);
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(31,38,135,0.13), 0 1px 6px #ffd70022, 0 0 18px #ffd70022;
+            padding: 22px 12px 16px 12px;
+            text-align: center;
+            transition: transform 0.22s, box-shadow 0.22s, border-color 0.22s;
+            border: 2.5px solid #ffd70022;
+            cursor: pointer;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            animation: fadeInCard 1s cubic-bezier(.4,0,.2,1);
+        }
+        @keyframes fadeInCard {
+            from { opacity: 0; transform: translateY(30px) scale(0.97); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .league-card .badge-new {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: linear-gradient(90deg,#ffd700 60%,#ffb300 100%);
+            color: #222;
+            font-size: 0.75rem;
+            font-weight: bold;
+            padding: 3px 12px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px #ffd70055;
+            letter-spacing: 1px;
+            z-index: 2;
+            animation: popIn 0.7s;
+        }
+        @keyframes popIn {
+            from { transform: scale(0.7); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .league-card:hover {
+            transform: translateY(-10px) scale(1.045);
+            box-shadow: 0 10px 32px #ffd70033, 0 2px 12px #fff4;
+            border-color: #ffd700;
+            background: rgba(255,255,255,0.38);
+        }
+        .league-icon {
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+            display: block;
+            filter: drop-shadow(0 0 8px #ffd70088);
+            transition: filter 0.2s;
+        }
+        .league-card:hover .league-icon {
+            filter: drop-shadow(0 0 16px #ffd700cc);
+        }
+        .league-title {
+            font-weight: bold;
+            color: #ffd700;
+            font-size: 1.13rem;
+            margin-bottom: 2px;
+            letter-spacing: 0.5px;
+            text-shadow: 0 1px 4px #ffd70033;
+        }
+        .country-name {
+            color: #fff;
+            font-size: 1rem;
+            opacity: 0.85;
+            margin-bottom: 4px;
+        }
+        .games-list ul {
+            margin-top:14px; 
+            margin-bottom:0; 
+            background:#222a; 
+            border-radius:8px; 
+            padding:13px 10px;
+            box-shadow: 0 1px 6px #ffd70022;
+        }
+        .games-list li {
+            margin-bottom:8px;
+            font-size: 1.01rem;
+            letter-spacing: 0.2px;
+        }
+        .games-list {
+            transition: all 0.2s;
+        }
+        .games-list span {
+            font-weight: 600;
+            text-shadow: 0 1px 4px #ffd70033;
+        }
+        /* Footer styles */
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #ffd700;
+            font-size: 1rem;
+            opacity: 0.92;
+            padding-bottom: 10px;
+        }
+        .footer .socials {
+            margin-top: 8px;
+        }
+        .footer .socials a {
+            display: inline-block;
+            margin: 0 8px;
+            color: #ffd700;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer .socials a:hover {
+            color: #fffde4;
+        }
+        @media (max-width: 700px) {
+            .main-frame {
+                padding: 18px 4px;
+            }
+            .leagues-frame {
+                padding: 12px 2px;
+            }
+            .header-section h1 {
+                font-size: 2rem;
+            }
+            .leagues-grid {
+                gap: 12px;
+            }
+            .league-card {
+                padding: 14px 4px 10px 4px;
+            }
+        }
+    </style>
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div class="main-frame">
+        <div class="header-section">
+            <div class="icon">⚽</div>
+            <h1>Karibu Shida Ligi!</h1>
+            <p>Jipatie nafasi ya kipekee kushinda zawadi kubwa kupitia ligi yetu ya kipekee. Jiunge sasa na uanze safari yako ya ushindi!</p>
+            <button class="cta-btn" onclick="window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'});">JISAJILI SASA</button>
+        </div>
+        <div class="leagues-frame">
+            <h2>Shinda Bet Ligi Maarufu</h2>
+            <div class="info">
+                Ligi maarufu kutoka nchi zote
+            </div>
+            <div class="leagues-grid">
+                <!-- League cards with animation delay and badge for East Africa leagues -->
+                <div class="league-card" data-country="England" style="animation-delay:0.05s">
+                    <span class="league-icon">🏴</span>
+                    <div class="league-title">English Premier League</div>
+                    <div class="country-name">England</div>
+                    <div class="games-list"></div>
+                </div>
+                <div class="league-card" data-country="Spain" style="animation-delay:0.1s">
+                    <span class="league-icon">🇪🇸</span>
+                    <div class="league-title">La Liga</div>
+                    <div class="country-name">Spain</div>
+                    <div class="games-list"></div>
+                </div>
+                <div class="league-card" data-country="Italy" style="animation-delay:0.15s">
+                    <span class="league-icon">🇮🇹</span>
+                    <div class="league-title">Serie A</div>
+                    <div class="country-name">Italy</div>
+                    <div class="games-list"></div>
+                </div>
+                <div class="league-card" data-country="Germany" style="animation-delay:0.2s">
+                    <span class="league-icon">🇩🇪</span>
+                    <div class="league-title">Bundesliga</div>
+                    <div class="country-name">Germany</div>
+                    <div class="games-list"></div>
+                </div>
+                <div class="league-card" data-country="France" style="animation-delay:0.25s">
+                    <span class="league-icon">🇫🇷</span>
+                    <div class="league-title">Ligue 1</div>
+                    <div class="country-name">France</div>
+                    <div class="games-list"></div>
+                </div>
+                <div class="league-card" data-country="Netherlands" style="animation-delay:0.3s">
+                    <span class="league-icon">🇳🇱</span>
+                    <div class="league-title">Eredivisie</div>
+                    <div class="country-name">Netherlands</div>
+                    <div class="games-list"></div>
+                </div>
+                <div class="league-card" data-country="Portugal" style="animation-delay:0.35s">
+                    <span class="league-icon">🇵🇹</span>
+                    <div class="league-title">Primeira Liga</div>
+                    <div class="country-name">Portugal</div>
+                    <div class="games-list"></div>
+                </div>
+                <div class="league-card" data-country="Turkey" style="animation-delay:0.4s">
+                    <span class="league-icon">🇹🇷</span>
+                    <div class="league-title">Süper Lig</div>
+                    <div class="country-name">Turkey</div>
+                    <div class="games-list"></div>
+                </div>
+                <div class="league-card" data-country="Russia" style="animation-delay:0.45s">
+                    <span class="league-icon">🇷🇺</span>
+                    <div class="league-title">Russian Premier League</div>
+                    <div class="country-name">Russia</div>
+                    <div class="games-list"></div>
+                </div>
+                <div class="league-card" data-country="Belgium" style="animation-delay:0.5s">
+                    <span class="league-icon">🇧🇪</span>
+                    <div class="league-title">Belgian Pro League</div>
+                    <div class="country-name">Belgium</div>
+                    <div class="games-list"></div>
+                </div>
+                <div class="league-card" data-country="USA" style="animation-delay:0.55s">
+                    <span class="league-icon">🇺🇸</span>
+                    <div class="league-title">Major League Soccer</div>
+                    <div class="country-name">USA</div>
+                    <div class="games-list"></div>
+                </div>
+                <div class="league-card" data-country="Brazil" style="animation-delay:0.6s">
+                    <span class="league-icon">🇧🇷</span>
+                    <div class="league-title">Brasileirão</div>
+                    <div class="country-name">Brazil</div>
+                    <div class="games-list"></div>
+                </div>
+                <div class="league-card" data-country="Argentina" style="animation-delay:0.65s">
+                    <span class="league-icon">🇦🇷</span>
+                    <div class="league-title">Argentine Primera División</div>
+                    <div class="country-name">Argentina</div>
+                    <div class="games-list"></div>
+                </div>
+                <div class="league-card" data-country="Tanzania" style="animation-delay:0.7s; position:relative;">
+                    <span class="league-icon">🇹🇿</span>
+                    <div class="league-title">Ligi Kuu ya Tanzania</div>
+                    <div class="country-name">Tanzania</div>
+                    <span class="badge-new">NEW</span>
+                    <div class="games-list"></div>
+                </div>
+                <div class="league-card" data-country="Kenya" style="animation-delay:0.75s; position:relative;">
+                    <span class="league-icon">🇰🇪</span>
+                    <div class="league-title">Kenyan Premier League</div>
+                    <div class="country-name">Kenya</div>
+                    <span class="badge-new">NEW</span>
+                    <div class="games-list"></div>
+                </div>
+                <div class="league-card" data-country="Uganda" style="animation-delay:0.8s; position:relative;">
+                    <span class="league-icon">🇺🇬</span>
+                    <div class="league-title">Uganda Premier League</div>
+                    <div class="country-name">Uganda</div>
+                    <span class="badge-new">NEW</span>
+                    <div class="games-list"></div>
+                </div>
+                <div class="league-card" data-country="Rwanda" style="animation-delay:0.85s; position:relative;">
+                    <span class="league-icon">🇷🇼</span>
+                    <div class="league-title">Rwanda Premier League</div>
+                    <div class="country-name">Rwanda</div>
+                    <span class="badge-new">NEW</span>
+                    <div class="games-list"></div>
+                </div>
+                <div class="league-card" data-country="Burundi" style="animation-delay:0.9s; position:relative;">
+                    <span class="league-icon">🇧🇮</span>
+                    <div class="league-title">Burundi Ligue A</div>
+                    <div class="country-name">Burundi</div>
+                    <span class="badge-new">NEW</span>
+                    <div class="games-list"></div>
+                </div>
+                <div class="league-card" data-country="Zambia" style="animation-delay:0.95s">
+                    <span class="league-icon">🇿🇲</span>
+                    <div class="league-title">Zambia Super League</div>
+                    <div class="country-name">Zambia</div>
+                    <div class="games-list"></div>
+                </div>
+                <div class="league-card" data-country="Malawi" style="animation-delay:1.0s">
+                    <span class="league-icon">🇲🇼</span>
+                    <div class="league-title">Malawi Super League</div>
+                    <div class="country-name">Malawi</div>
+                    <div class="games-list"></div>
+                </div>
+                <div class="league-card" data-country="Afrika Kusini" style="animation-delay:1.05s">
+                    <span class="league-icon">🇿🇦</span>
+                    <div class="league-title">PSL</div>
+                    <div class="country-name">Afrika Kusini</div>
+                    <div class="games-list"></div>
+                </div>
+                <div class="league-card" data-country="Nigeria" style="animation-delay:1.1s">
+                    <span class="league-icon">🇳🇬</span>
+                    <div class="league-title">Nigeria Professional Football League</div>
+                    <div class="country-name">Nigeria</div>
+                    <div class="games-list"></div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div>© 2025 Shida Ligi. All Rights Reserved.</div>
+            <div>WhatsApp: <a href="https://wa.me/255659070960" style="color:#ffd700;text-decoration:underline;">0659 070 960</a></div>
+            <div class="socials">
+                <a href="https://facebook.com/wasafibetofficial" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://twitter.com/WasafiBet" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com/wasafibetofficial" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+    <script>
+    const gamesData = {
+        // ...weka hapa data yako yote ya gamesData kama ilivyo kwenye majibu ya awali...
+    };
+
+    // Onyesha mechi zote ki-otomatiki kila siku ukurasa unavyofunguliwa
+    function showAllGamesAutomatically() {
+        const today = new Date();
+        document.querySelectorAll('.league-card').forEach(card => {
+            const country = card.getAttribute('data-country');
+            const daysArray = gamesData[country];
+            let dayIndex = 0;
+            if (daysArray && daysArray.length > 0) {
+                dayIndex = today.getDate() % daysArray.length;
+            }
+            const games = daysArray ? daysArray[dayIndex] : null;
+            const gamesListDiv = card.querySelector('.games-list');
+            if (games && games.length) {
+                let html = '<ul>';
+                games.forEach(g => {
+                    html += `<li>${g.match} <span style="color:#ffd700;">| Odds: ${g.odds}</span></li>`;
+                });
+                html += '</ul>';
+                gamesListDiv.innerHTML = html;
+            } else {
+                gamesListDiv.innerHTML = '<div style="margin-top:12px; color:#ffd700;">Hakuna data ya michezo kwa sasa.</div>';
+            }
+        });
+    }
+
+    window.addEventListener('DOMContentLoaded', showAllGamesAutomatically);
+    </script>
+</body>
+</html>

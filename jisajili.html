@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Form Validation</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #4f8cff 0%, #38b6ff 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .form-container {
+            background: rgba(255,255,255,0.98);
+            padding: 2.7rem 2.2rem 2.2rem 2.2rem;
+            border-radius: 22px;
+            box-shadow: 0 8px 40px rgba(60, 72, 88, 0.18);
+            min-width: 340px;
+            width: 100%;
+            max-width: 410px;
+            position: relative;
+            overflow: hidden;
+        }
+        .avatar {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #4f8cff 0%, #38b6ff 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: -60px auto 18px auto;
+            box-shadow: 0 4px 16px rgba(79, 140, 255, 0.18);
+            border: 4px solid #fff;
+        }
+        .avatar img {
+            width: 40px;
+            height: 40px;
+        }
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #2d3a4b;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        label {
+            display: block;
+            margin-bottom: 1.2rem;
+            color: #2d3a4b;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="tel"] {
+            width: 100%;
+            padding: 0.7rem 0.9rem;
+            border: 1.5px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 1rem;
+            margin-top: 0.3rem;
+            background: #f9fafb;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            box-shadow: 0 1px 2px rgba(60, 72, 88, 0.04);
+        }
+        input:focus {
+            border-color: #4f8cff;
+            outline: none;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(79, 140, 255, 0.10);
+        }
+        .error {
+            color: #e74c3c;
+            font-size: 0.92rem;
+            margin-top: 0.2rem;
+            display: block;
+            min-height: 1.2em;
+        }
+        .phone-group {
+            display: flex;
+            gap: 8px;
+        }
+        .phone-group select {
+            flex: 1;
+            border-radius: 8px;
+            border: 1.5px solid #d1d5db;
+            background: #f9fafb;
+            padding: 0.7rem 0.5rem;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+        .phone-group select:focus {
+            border-color: #4f8cff;
+            outline: none;
+            background: #fff;
+        }
+        .phone-group input[type="tel"] {
+            flex: 2;
+        }
+        button[type="submit"] {
+            width: 100%;
+            padding: 0.95rem 0;
+            background: linear-gradient(90deg, #4f8cff 0%, #38b6ff 100%);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 0.7rem;
+            box-shadow: 0 2px 12px rgba(79, 140, 255, 0.13);
+            transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+            letter-spacing: 0.5px;
+        }
+        button[type="submit"]:hover {
+            background: linear-gradient(90deg, #38b6ff 0%, #4f8cff 100%);
+            box-shadow: 0 4px 24px rgba(79, 140, 255, 0.18);
+            transform: translateY(-2px) scale(1.02);
+        }
+        .checkbox-label {
+            display: flex;
+            align-items: flex-start;
+            font-size: 0.97rem;
+            color: #4a5a6a;
+            margin-top: 1.1rem;
+            line-height: 1.4;
+        }
+        .checkbox-label input[type="checkbox"] {
+            margin-right: 0.7em;
+            accent-color: #4f8cff;
+            margin-top: 0.2em;
+        }
+        .checkbox-label a {
+            color: #4f8cff;
+            text-decoration: underline;
+            margin-left: 4px;
+            font-weight: 500;
+        }
+        @media (max-width: 500px) {
+            .form-container {
+                min-width: unset;
+                padding: 1.2rem 0.5rem;
+                border-radius: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <div class="avatar">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="User Icon">
+        </div>
+        <h2>Register</h2>
+        <form id="myForm" action="submit.php" method="POST" novalidate>
+            <label>
+                Username
+                <input type="text" id="username" name="username" autocomplete="off">
+                <span class="error" id="usernameError"></span>
+            </label>
+            <label>
+                Email
+                <input type="email" id="email" name="email" autocomplete="off">
+                <span class="error" id="emailError"></span>
+            </label>
+            <label>
+                Phone Number
+                <div class="phone-group">
+                    <select id="countryCode" name="countryCode">
+                        <option value="+1"> +1 (USA)</option>
+                        <option value="+44">+44 (UK)</option>
+                        <option value="+255">+255 (TZ)</option>
+                        <option value="+254"> +254 (KE)</option>
+                        <option value="+91"> +91 (IN)</option>
+                        <option value="+27"> +27 (ZA)</option>
+                        <option value="+234"> +234 (NG)</option>
+                        <option value="+81">+81 (JP)</option>
+                        <option value="+49"> +49 (DE)</option>
+                        <option value="+33"> +33 (FR)</option>
+                        <!-- Add more countries as needed -->
+                    </select>
+                    <input type="tel" id="phone" name="phone" placeholder="Phone number">
+                </div>
+                <span class="error" id="phoneError"></span>
+            </label>
+            <label>
+                Password
+                <input type="password" id="password" name="password" autocomplete="off">
+                <span class="error" id="passwordError"></span>
+            </label>
+            <label>
+                Confirm Password
+                <input type="password" id="confirmPassword" name="confirmPassword" autocomplete="off">
+                <span class="error" id="confirmPasswordError"></span>
+            </label>
+            <button type="submit">Register</button>
+            <label class="checkbox-label">
+                <input type="checkbox" name="terms" id="terms" required>
+                I am at least 18 years of age and I agree with terms &amp; Conditions,
+                privacy policy, deposit / withdrawal policy.
+                <a href="#">Terms And Conditions</a>
+            </label>
+        </form>
+    </div>
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+            let valid = true;
+
+            // Clear previous errors
+            document.getElementById('usernameError').textContent = '';
+            document.getElementById('emailError').textContent = '';
+            document.getElementById('phoneError').textContent = '';
+            document.getElementById('passwordError').textContent = '';
+            document.getElementById('confirmPasswordError').textContent = '';
+
+            // Validate username
+            const username = document.getElementById('username').value.trim();
+            if (username === '') {
+                document.getElementById('usernameError').textContent = 'Username is required.';
+                valid = false;
+            }
+
+            // Validate email
+            const email = document.getElementById('email').value.trim();
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email === '') {
+                document.getElementById('emailError').textContent = 'Email is required.';
+                valid = false;
+            } else if (!emailPattern.test(email)) {
+                document.getElementById('emailError').textContent = 'Enter a valid email.';
+                valid = false;
+            }
+
+            // Validate phone number
+            const phone = document.getElementById('phone').value.trim();
+            if (phone === '') {
+                document.getElementById('phoneError').textContent = 'Phone number is required.';
+                valid = false;
+            } else if (!/^\d{6,15}$/.test(phone)) {
+                document.getElementById('phoneError').textContent = 'Enter a valid phone number.';
+                valid = false;
+            }
+
+            // Validate password
+            const password = document.getElementById('password').value;
+            if (password.length < 6) {
+                document.getElementById('passwordError').textContent = 'Password must be at least 6 characters.';
+                valid = false;
+            }
+
+            // Validate confirm password
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            if (confirmPassword !== password) {
+                document.getElementById('confirmPasswordError').textContent = 'Passwords do not match.';
+                valid = false;
+            }
+
+            // Validate terms checkbox
+            if (!document.getElementById('terms').checked) {
+                alert('You must agree to the terms and conditions.');
+                valid = false;
+            }
+
+            if (!valid) {
+                event.preventDefault(); // Prevent form submission if validation fails
+            }
+        });
+    </script>
+</body>
+</html>

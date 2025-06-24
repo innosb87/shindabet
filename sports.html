@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <title>Wasafi Bet - Mechi Live</title>
+    <!-- Google Fonts & Material Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;500;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ffb300;
+            --primary-dark: #d17d00;
+            --accent: #00bcd4;
+            --bg: #fffde7;
+            --nav-bg: #181818;
+            --live: #e53935;
+        }
+        body {
+            font-family: 'Montserrat', Arial, sans-serif;
+            background: linear-gradient(120deg, #fffde7 0%, #fff 100%);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+        .navbar {
+            background: var(--nav-bg);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+            margin: 0;
+            padding: 0 12px;
+            gap: 2px;
+        }
+        .nav-item {
+            margin: 0;
+        }
+        .nav-link, .nav-link.active {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #fff;
+            background: transparent;
+            padding: 16px 22px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.08rem;
+            border-radius: 8px 8px 0 0;
+            transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+            cursor: pointer;
+            letter-spacing: 1px;
+        }
+        .nav-link .material-icons {
+            font-size: 1.2em;
+            vertical-align: middle;
+        }
+        .nav-link:hover, .nav-link.active {
+            background: var(--primary);
+            color: #222;
+            box-shadow: 0 4px 12px rgba(255,193,7,0.10);
+        }
+        .container {
+            max-width: 650px;
+            margin: 48px auto 0 auto;
+            background: #fff;
+            padding: 38px 28px 32px 28px;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(255,193,7,0.10);
+        }
+        h2 {
+            color: var(--primary-dark);
+            font-size: 2rem;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+            font-weight: 800;
+            text-align: center;
+            text-shadow: 0 2px 8px #ffe08280;
+        }
+        .live-matches {
+            background: var(--bg);
+            padding: 22px 18px;
+            border-radius: 14px;
+            margin-top: 28px;
+            box-shadow: 0 2px 8px #ffe08280;
+        }
+        .live-title {
+            color: var(--primary-dark);
+            font-weight: bold;
+            margin-bottom: 14px;
+            font-size: 1.15rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .live-title .material-icons {
+            color: var(--live);
+            font-size: 1.2em;
+        }
+        .live-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .live-list li {
+            margin-bottom: 14px;
+            font-size: 1.08rem;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #fff;
+            border-radius: 8px;
+            padding: 12px 14px;
+            box-shadow: 0 1px 4px #ffe08260;
+            font-weight: 500;
+        }
+        .live-badge {
+            color: #fff;
+            background: var(--live);
+            border-radius: 6px;
+            padding: 2px 12px;
+            font-size: 0.98rem;
+            margin-left: 8px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            box-shadow: 0 1px 4px #e5393550;
+            letter-spacing: 1px;
+        }
+        .live-badge .material-icons {
+            font-size: 1.1em;
+            vertical-align: middle;
+        }
+        @media (max-width: 700px) {
+            .container {
+                margin: 18px 2vw 0 2vw;
+                padding: 12px 2vw;
+            }
+            .live-matches {
+                padding: 10px 4px;
+            }
+            .live-list li {
+                font-size: 0.98rem;
+                padding: 8px 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="nav-list">
+            <li class="nav-item"><a href="home .html" class="nav-link"><span class="material-icons">home</span>Nyumbani</a></li>
+            <li class="nav-item"><a href="sports.html" class="nav-link active"><span class="material-icons">sports_soccer</span>Michezo</a></li>
+            <li class="nav-item"><a href="shidaligi.html" class="nav-link"><span class="material-icons">emoji_events</span>ShindaLigi</a></li>
+            <li class="nav-item"><a href="shinda.html" class="nav-link"><span class="material-icons">live_tv</span>ShindaLive</a></li>
+            <li class="nav-item"><a href="jacpots.html" class="nav-link"><span class="material-icons">star</span>Jackpots</a></li>
+            <li class="nav-item"><a href="mpango.html" class="nav-link"><span class="material-icons">sort_by_alpha</span>A-Z Sports</a></li>
+            <li class="nav-item"><a href="casino.html" class="nav-link"><span class="material-icons">casino</span>Casino & Slots</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h2>Mechi Zinazooneshwa Live Sasa</h2>
+        <div class="live-matches">
+            <div class="live-title"><span class="material-icons">live_tv</span>Mechi Live:</div>
+            <ul class="live-list" id="liveMatches">
+                <li>Inapakia mechi za live...</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        // Mfano wa kutumia TheSportsDB API (soccer live scores)
+        fetch('https://www.thesportsdb.com/api/v1/json/1/livescore.php?s=Soccer')
+            .then(response => response.json())
+            .then(data => {
+                const liveList = document.getElementById('liveMatches');
+                liveList.innerHTML = '';
+                if (data.events && data.events.length > 0) {
+                    data.events.forEach(event => {
+                        const li = document.createElement('li');
+                        li.innerHTML = `
+                            <span class="material-icons" style="color:#ffb300;">sports_soccer</span>
+                            <span>${event.strHomeTeam} <b>${event.intHomeScore}</b> - <b>${event.intAwayScore}</b> ${event.strAwayTeam}</span>
+                            <span class="live-badge"><span class="material-icons">fiber_manual_record</span>LIVE</span>
+                        `;
+                        liveList.appendChild(li);
+                    });
+                } else {
+                    liveList.innerHTML = '<li>Hakuna mechi za live kwa sasa.</li>';
+                }
+            })
+            .catch(() => {
+                document.getElementById('liveMatches').innerHTML = '<li>Imeshindikana kupakia mechi za live.</li>';
+            });
+    </script>
+</body>
+</html>

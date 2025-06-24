@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shinda Bet | Nyumbani</title>
+  <!-- Google Fonts & Material Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;500;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #ffb300;
+      --primary-dark: #d17d00;
+      --accent: #00bcd4;
+      --bg: #fff;
+      --nav-bg: #181818;
+      --nav-active: #ffb300;
+      --shadow: 0 4px 24px rgba(0,0,0,0.10);
+      --hero-gradient: linear-gradient(100deg, #ffb300 60%, #fffde7 100%);
+      --section-gradient: linear-gradient(120deg, #fffde7 60%, #ffe082 100%);
+      --live: #e53935;
+    }
+    body {
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: linear-gradient(120deg, #fffde7 0%, #fff 100%);
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+    }
+    .navbar {
+      background: #1766c2;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 0;
+    }
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 18px;
+      min-height: 56px;
+    }
+    .logo-area .site-logo {
+      display: inline-block;
+      width: 44px;
+      height: 44px;
+      background: url('https://cdn-icons-png.flaticon.com/512/1041/1041916.png') no-repeat center/contain;
+      vertical-align: middle;
+    }
+    .main-menu {
+      display: flex;
+      gap: 18px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .main-menu li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.08rem;
+      padding: 12px 16px;
+      border-radius: 6px;
+      transition: background 0.18s, color 0.18s;
+    }
+    .main-menu li a.active,
+    .main-menu li a:hover {
+      background: #fff;
+      color: #1766c2;
+    }
+    .user-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .lang-select {
+      border-radius: 6px;
+      border: 1px solid #cfd8dc;
+      padding: 4px 8px;
+      font-size: 1rem;
+      background: #fff;
+      color: #1766c2;
+    }
+    .search-box {
+      border-radius: 6px;
+      border: 1px solid #cfd8dc;
+      padding: 4px 8px;
+      font-size: 1rem;
+      width: 90px;
+    }
+    .login-btn, .join-btn {
+      text-decoration: none;
+      font-weight: 700;
+      border-radius: 6px;
+      padding: 8px 16px;
+      margin-left: 4px;
+      transition: background 0.18s, color 0.18s;
+    }
+    .login-btn {
+      background: #fff;
+      color: #1766c2;
+      border: 1px solid #1766c2;
+    }
+    .login-btn:hover {
+      background: #e3f2fd;
+    }
+    .join-btn {
+      background: #ffb300;
+      color: #222;
+      border: none;
+    }
+    .join-btn:hover {
+      background: #ffd54f;
+    }
+    .sports-bar {
+      background: #0d2a4a;
+      padding: 6px 0;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    .sports-icons {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 0 18px;
+    }
+    .sport-icon {
+      font-size: 1.5rem;
+      color: #fff;
+      background: #1e3a5c;
+      border-radius: 50%;
+      padding: 8px;
+      min-width: 36px;
+      text-align: center;
+      transition: background 0.18s, color 0.18s;
+      cursor: pointer;
+    }
+    .sport-icon:hover {
+      background: #ffb300;
+      color: #0d2a4a;
+    }
+    .hero {
+      background: var(--hero-gradient);
+      padding: 56px 0 40px 0;
+      text-align: center;
+      color: #222;
+      box-shadow: 0 2px 12px #ffe08280;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      top: 0;
+      width: 320px;
+      height: 100%;
+      background: url('https://cdn-icons-png.flaticon.com/512/1041/1041916.png') no-repeat center/contain;
+      opacity: 0.08;
+      pointer-events: none;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+      font-weight: 800;
+      text-shadow: 0 2px 8px #ffe08280;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 18px;
+      color: #444;
+      font-weight: 500;
+    }
+    .cta-btn {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 16px 40px;
+      font-size: 1.18rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.18s, transform 0.12s, box-shadow 0.18s;
+      box-shadow: 0 2px 8px #00bcd480;
+      margin-top: 10px;
+      letter-spacing: 1px;
+    }
+    .cta-btn:hover {
+      background: #008ba3;
+      transform: scale(1.06);
+      box-shadow: 0 4px 16px #00bcd480;
+    }
+    .section {
+      max-width: 1100px;
+      margin: 36px auto 0 auto;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 36px 32px 32px 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .section-title {
+      color: var(--primary-dark);
+      font-size: 1.7rem;
+      margin-bottom: 18px;
+      letter-spacing: 1px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-title .material-icons {
+      color: var(--primary);
+      font-size: 1.4em;
+    }
+    .sports-categories, .live-events, .offers {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      justify-content: center;
+    }
+    .sport-card, .event-card, .offer-card {
+      background: var(--section-gradient);
+      border-radius: 18px;
+      box-shadow: 0 2px 12px #ffe08280;
+      padding: 28px 20px;
+      min-width: 170px;
+      max-width: 220px;
+      flex: 1 1 170px;
+      text-align: center;
+      transition: transform 0.15s, box-shadow 0.15s;
+      border: 2.5px solid #ffb300;
+      position: relative;
+      cursor: pointer;
+    }
+    .sport-card:hover, .event-card:hover, .offer-card:hover {
+      transform: translateY(-8px) scale(1.07);
+      box-shadow: 0 8px 24px #ffb30060;
+      border: 2.5px solid var(--primary-dark);
+      z-index: 2;
+    }
+    .sport-title, .event-title, .offer-title {
+      font-size: 1.18rem;
+      color: var(--primary-dark);
+      font-weight: bold;
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+      text-shadow: 0 1px 4px #ffe08280;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .sport-desc, .event-desc, .offer-desc {
+      color: #616161;
+      font-size: 1.04rem;
+      margin-bottom: 4px;
+      font-weight: 500;
+    }
+    .live-badge {
+      background: var(--live);
+      color: #fff;
+      font-size: 0.98rem;
+      font-weight: 700;
+      border-radius: 8px;
+      padding: 2px 12px;
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      box-shadow: 0 1px 4px #e5393550;
+      letter-spacing: 1px;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .live-badge .material-icons {
+      font-size: 1.1em;
+      vertical-align: middle;
+     
+    }
+    @media (max-width: 1100px) {
+      .section {
+        max-width: 98vw;
+        padding: 18px 4vw;
+      }
+      .sports-categories, .live-events, .offers {
+        gap: 12px;
+      }
+    }
+    @media (max-width: 700px) {
+      .navbar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .nav-list {
+        flex-direction: column;
+        gap: 0;
+        padding: 0;
+      }
+      .nav-link, .nav-link.active {
+        border-radius: 0;
+        padding: 14px 12px;
+      }
+      .section {
+        margin: 18px 2vw 0 2vw;
+        padding: 12px 2vw;
+      }
+      .sports-categories, .live-events, .offers {
+        gap: 6px;
+      }
+      .sport-card, .event-card, .offer-card {
+        min-width: 120px;
+        max-width: 100vw;
+        padding: 14px 6px;
+      }
+    }
+    .cta-link {
+      text-decoration: none;
+    }
+    .cta-btn-attractive {
+      background: linear-gradient(90deg, #ffb300 0%, #ff6f00 100%);
+      color: #fff;
+      border: none;
+      border-radius: 32px;
+      padding: 18px 54px;
+      font-size: 1.35rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 4px 24px #ffb30055, 0 1.5px 8px #ff6f0033;
+      letter-spacing: 1.5px;
+      margin-top: 18px;
+      transition: background 0.22s, transform 0.13s, box-shadow 0.22s;
+      position: relative;
+      overflow: hidden;
+      outline: none;
+      animation: pulse 1.8s infinite;
+    }
+    .cta-btn-attractive span {
+      position: relative;
+      z-index: 2;
+    }
+    .cta-btn-attractive::before {
+      content: "";
+      position: absolute;
+      left: -40%;
+      top: 0;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(120deg, #fffde7 0%, #ffe082 100%);
+      opacity: 0.18;
+      transform: skewX(-18deg);
+      z-index: 1;
+      transition: opacity 0.2s;
+    }
+    .cta-btn-attractive:hover {
+      background: linear-gradient(90deg, #ff6f00 0%, #ffb300 100%);
+      color: #fff;
+      transform: scale(1.06) translateY(-2px);
+      box-shadow: 0 8px 32px #ffb30099, 0 2px 12px #ff6f0055;
+      animation: none;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 4px 24px #ffb30055, 0 1.5px 8px #ff6f0033; }
+      50% { box-shadow: 0 8px 36px #ffb30099, 0 4px 16px #ff6f0055; }
+      100% { box-shadow: 0 4px 24px #ffb30055, 0 1.5px 8px #ff6f0033; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="top-bar">
+      <div class="logo-area">
+        <!-- Badala ya logo ya Wasafi, tumia icon au jina lako -->
+        <span class="site-logo"></span>
+      </div>
+      <ul class="main-menu">
+           <li><a href="live-matches.html">Sports Betting</a></li>
+        <li><a href="inno.html">Ligi</a></li>
+        <li><a href="casino.html">Casino</a></li>
+        <li><a href="jacpots.html">Jackpots</a></li>
+        <li><a href="mpango.html">Promotions</a></li>
+      </ul>
+      <div class="user-actions">
+        <select class="lang-select">
+          <option>English</option>
+          <option>Swahili</option>
+        </select>
+        <input type="text" class="search-box" placeholder="search">
+        <a href="login.html" class="login-btn">Log In</a>
+        <a href="jisajili.html" class="join-btn">Join Now</a>
+      </div>
+    
+    </div>
+  </nav>
+  <div class="hero">  
+    
+    <h1>Karibu Shinda  Bet!</h1>
+    <p>
+      Beti kwenye michezo maarufu, matukio ya moja kwa moja, na ushinde ofa kabambe kila siku.<br>
+      Jiunge sasa na uanze kushinda!
+    </p>
+    <a href="jisajili.html" class="cta-link">
+      <button class="cta-btn-attractive">
+        <span>Jisajili Sasa</span>
+      </button>
+    </a>
+  </div>
+  <div class="section">
+    <div class="section-title"><span class="material-icons">sports</span>Michezo Maarufu</div>
+    <div class="sports-categories">
+      <div class="sport-card">
+        <div class="sport-title"><span class="material-icons">sports_soccer</span>Mpira wa Miguu</div>
+        <div class="sport-desc">Ligi Kuu, EPL, La Liga, Serie A</div>
+      </div>
+      <div class="sport-card">
+        <div class="sport-title"><span class="material-icons">sports_basketball</span>Mpira wa Kikapu</div>
+        <div class="sport-desc">NBA, EuroLeague</div>
+      </div>
+      <div class="sport-card">
+        <div class="sport-title"><span class="material-icons">sports_tennis</span>Tennis</div>
+        <div class="sport-desc">ATP, WTA, Grand Slams</div>
+      </div>
+      <div class="sport-card">
+        <div class="sport-title"><span class="material-icons">sports_cricket</span>Cricket</div>
+        <div class="sport-desc">IPL, T20, ODI</div>
+      </div>
+      <div class="sport-card">
+        <div class="sport-title"><span class="material-icons">sports_rugby</span>Rugby</div>
+        <div class="sport-desc">World Cup, Sevens</div>
+      </div>
+      <div class="sport-card">
+        <div class="sport-title"><span class="material-icons">sports_esports</span>eSports</div>
+        <div class="sport-desc">Dota 2, CS:GO, FIFA</div>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-title"><span class="material-icons">live_tv</span>Matukio ya Moja kwa Moja</div>
+    <div class="live-events">
+      <div class="event-card">
+        <span class="live-badge"><span class="material-icons">fiber_manual_record</span>LIVE</span>
+        <div class="event-title">Man United vs Liverpool</div>
+        <div class="event-desc">Dakika ya 55 | EPL</div>
+      </div>
+      <div class="event-card">
+        <span class="live-badge"><span class="material-icons">fiber_manual_record</span>LIVE</span>
+        <div class="event-title">Lakers vs Warriors</div>
+        <div class="event-desc">Q3 | NBA</div>
+      </div>
+      <div class="event-card">
+        <span class="live-badge"><span class="material-icons">fiber_manual_record</span>LIVE</span>
+        <div class="event-title">Serena vs Osaka</div>
+        <div class="event-desc">Seti ya 2 | Wimbledon</div>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-title"><span class="material-icons">local_offer</span>Ofa Maalum</div>
+    <div class="offers">
+      <div class="offer-card">
+        <div class="offer-title"><span class="material-icons">card_giftcard</span>Karibu Bonus</div>
+        <div class="offer-desc">Pata 100% bonus kwenye amana yako ya kwanza!</div>
+      </div>
+      <div class="offer-card">
+        <div class="offer-title"><span class="material-icons">stars</span>Jackpot Kubwa</div>
+        <div class="offer-desc">Shinda hadi TZS 100,000,000 kila wiki!</div>
+      </div>
+      <div class="offer-card">
+        <div class="offer-title"><span class="material-icons">wifi</span>Bet Bila Data</div>
+        <div class="offer-desc">Beti bila kutumia data ukiwa na Vodacom!</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
